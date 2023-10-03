@@ -13,11 +13,12 @@ public class PlayerController : MonoBehaviour
     public Transform feetPos;
     public float checkRadius;
     public LayerMask whatIsGround;
+    public Joystick joystick;
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
     }
     private void FixedUpdate() {
-        moveInput = Input.GetAxis("Horizontal");
+        moveInput = joystick.Horizontal;
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
         if(facingRight == false && moveInput > 0){
             Flip();
@@ -27,8 +28,9 @@ public class PlayerController : MonoBehaviour
         }
     }
     private void Update() {
+        float verticalMove = joystick.Vertical;
         isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
-        if(isGrounded == true && Input.GetKeyDown(KeyCode.Space)){
+        if(isGrounded == true && verticalMove >= .5f){
             rb.velocity = Vector2.up * jumpForce;
         }
     }
