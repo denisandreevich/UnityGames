@@ -14,7 +14,9 @@ public class PlayerController : MonoBehaviour
     public float checkRadius;
     public LayerMask whatIsGround;
     public Joystick joystick;
+    public VectorValue pos;
     private void Start() {
+        transform.position = pos.initialValue;
         rb = GetComponent<Rigidbody2D>();
     }
     private void FixedUpdate() {

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9194425392224476463}
   - component: {fileID: -7520171550319786287}
   m_Layer: 6
-  m_Name: "\u044F\u0431\u043B\u043E\u043A\u043E"
+  m_Name: "\u043A\u043B\u044E\u0447"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.13, y: -1.71, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.138372, y: 0.138372, z: 0.138372}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 548171206a03e7541b66c369af963bc3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4e8f3e3862fa2bf4c9d010ddfd1df839, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -161,5 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 666b6b2b2d529c142a47d24beb921002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotButton: {fileID: 2948528654585990648, guid: 3467eb65fa3f13d46ba900b0c0ca7c5d, type: 3}
-  id: 3
+  slotButton: {fileID: 2948528654585990648, guid: 0a73cc26453a8f846bcbf09fd2bdba55, type: 3}
+  id: 1
