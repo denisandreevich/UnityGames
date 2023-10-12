@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelChanger : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class LevelChanger : MonoBehaviour
     public int levelToLoad;
     public Vector3 position;
     public VectorValue playerStorage;
+    public Slider slider;
+    public GameObject loadingScreen;
     private void Start() {
         anim = GetComponent<Animator>();
     }
@@ -18,5 +21,15 @@ public class LevelChanger : MonoBehaviour
     public void OnFadeComplete(){
         playerStorage.initialValue = position;
         SceneManager.LoadScene(levelToLoad);
+        StartCoroutine(LoadingSreenOnFade());
+    }
+    IEnumerator LoadingSreenOnFade(){
+        AsyncOperation operation = SceneManager.LoadSceneAsync(levelToLoad);
+        loadingScreen.SetActive(true);
+        while (!operation.isDone){
+            float progress = Mathf.Clamp01(operation.progress / .9f);
+            slider.value = progress;
+            yield return null;
+        }
     }
 }
