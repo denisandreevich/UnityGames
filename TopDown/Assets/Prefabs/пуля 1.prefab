@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 627563654532151214}
   - component: {fileID: -6072991361877939591}
   m_Layer: 6
-  m_Name: "\u043F\u0443\u043B\u044F"
+  m_Name: "\u043F\u0443\u043B\u044F 1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: c41aa18cd33a66b478ad3545793c8451, type: 3}
+  m_Sprite: {fileID: 21300000, guid: edd004b47bccf9942922f18c599532b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,5 +103,5 @@ MonoBehaviour:
   damage: 1
   whatIsSolid:
     serializedVersion: 2
-    m_Bits: 128
-  enemyBullet: 0
+    m_Bits: 256
+  enemyBullet: 1

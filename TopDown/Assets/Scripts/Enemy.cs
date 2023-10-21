@@ -4,40 +4,40 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public GameObject damageText;
     public int health;
     public float speed;
     public int damage;
     private float timeBtwAttack;
     public float startTimeBtwAttack;
-    private float stopTime;
     public float startStopTime;
-    public float normalSpeed;
+
     private Player player;
     private Animator anim;
-    private ScoreManager sm;
+
 
     private void Start() {
+
+
         anim = GetComponent<Animator>();
         player = FindObjectOfType<Player>();
-        normalSpeed = speed;
-        sm = FindObjectOfType<ScoreManager>();
     }
     private void Update() {
-        if(stopTime <= 0){
-            speed = normalSpeed;
-        }else{
-            speed = 0;
-            stopTime -= Time.deltaTime;
+        if(player.transform.position.x > transform.position.x){
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }else {
+            transform.eulerAngles = new Vector3(0, 0, 0);
         }
-        if(health <= 0){
-            sm.Kill();
-            Destroy(gameObject);
-        }
-        transform.Translate(Vector2.left * speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
     public void TakeDamage(int damage){
-        stopTime = startStopTime;
         health -= damage;
+        UnityEngine.Vector2 damagePos = new UnityEngine.Vector2(transform.position.x, transform.position.y + 2.75f);
+        Instantiate(damageText, damagePos, UnityEngine.Quaternion.identity);
+        damageText.GetComponentInChildren<DamageText>().damage = damage;
+        if(health < 1){
+            Destroy(gameObject);
+        }
     }
     private void OnTriggerStay2D(Collider2D other) {
         if(other.CompareTag("Player")){
@@ -49,7 +49,8 @@ public class Enemy : MonoBehaviour
         }
     }
     public void OnEnemyAttack(){
-        player.health -= damage;
+        player.ChangeHealth(-damage);
         timeBtwAttack = startTimeBtwAttack;
+        
     }
 }
