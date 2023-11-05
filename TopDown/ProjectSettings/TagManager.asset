@@ -8,6 +8,10 @@ TagManager:
   - Potion
   - Shield
   - Weapon
+  - Wall
+  - Door
+  - RoomPoint
+  - Rooms
   layers:
   - Default
   - TransparentFX
